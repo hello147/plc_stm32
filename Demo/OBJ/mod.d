@@ -1,0 +1,15 @@
+..\obj\mod.o: ..\SYSTEM\mod\mod.c
+..\obj\mod.o: ..\SYSTEM\mod\mod.h
+..\obj\mod.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\mod.o: ..\USER\stm32f10x.h
+..\obj\mod.o: ..\CORE\core_cm3.h
+..\obj\mod.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\mod.o: ..\USER\system_stm32f10x.h
+..\obj\mod.o: ..\USER\stm32f10x_conf.h
+..\obj\mod.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\mod.o: ..\USER\stm32f10x.h
+..\obj\mod.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\mod.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\mod.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\mod.o: ..\STM32F10x_FWLib\inc\misc.h
+..\obj\mod.o: ..\SYSTEM\sys\sys.h
