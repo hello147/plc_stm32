@@ -7,8 +7,9 @@
 extern Device_Info device; 
 uint8_t datatemp[65];
  uint8_t defalut[20];
- 
- uint8_t ReadBuf[bakbuffer_len];
+ int readedaddr;
+ uint8_t ReadBuf[200];
+extern char coredata[200];
 //读取配置
 void r_defalutconfig()
 {
@@ -33,18 +34,37 @@ void r_defalutconfig()
 void readbak()
 {
 	 int i;
-	 E2promReadBuffer(100,ReadBuf,sizeof(ReadBuf));
+	
+	if(readedaddr<1100)
+	{
+	  
+		E2promReadBuffer(readedaddr,ReadBuf,200);
+		for(i=0;i<200;i++)
+		{
+		  E2promWriteByte(readedaddr+i,"0");
+		}
+		 BSP_Printf("擦除了\r\n");
+		readedaddr+=200;
+		if(strstr(ReadBuf,"data")!=NULL)
+		 {
+			 //Send_Data_To_Server(ReadBuf);
+			 sprintf(coredata,"断网时的数据%s\r\n",ReadBuf);
+			 SendPost_Server(); 		//打包通用数据并发送
+			 BSP_Printf("发送了备份\r\n");
+		 }
+	}
+	else if(readedaddr>1100)
+	{
+	  readedaddr=100;
+	}
+	
 	 BSP_Printf("读出了备份：");
 //		for(i=0;i<sizeof(ReadBuf);i++)
 //		{  
 //			BSP_Printf("%c",ReadBuf[i]);	
 //		}
 	//如果读出来有data标志
-   if(strstr(ReadBuf,"data")!=NULL)
-	 {
-	   Send_Data_To_Server(ReadBuf);
-		 BSP_Printf("发送了备份：");
-	 }
+   
 	  //packagepost(ipaddr,port,coredata);
 //	 for(i=0;i<sizeof(ReadBuf);i++)
 //			{
