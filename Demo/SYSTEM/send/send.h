@@ -25,7 +25,7 @@ extern volatile uint8_t ucTcpClosedFlag;
 /********************************** ²âÊÔº¯ÊıÉùÃ÷ ***************************************/
 void ESP8266_StaTcpClient_UnvarnishTest  ( void );
 
-void packagepost(char *ip,char *port);
+void packagepost(char *ip,char *port,char *msg);
 void Write_To_eeprom(int WriteAddr,u8 *DataToWrite,u8 Len);
 #endif
 

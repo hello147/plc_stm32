@@ -8,7 +8,7 @@
 #include "usart3.h"
 
 Device_Info device;  //代表本机
-
+char coredata[200];
  int main(void)
  {	
 	 delay_init();

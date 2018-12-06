@@ -20,6 +20,7 @@ char  *ipaddr = "118.024.157.134";
 char  *port = "8081";
 const char delim=',';
 const char ending='#';
+extern char coredata[200];
 char post[]={
 "test"
 };
@@ -848,7 +849,7 @@ u8 SendPost_Server()
 	
 	
 	 packagedata();
-	 packagepost(ipaddr,port);
+	 packagepost(ipaddr,port,coredata);
 	 ret = Send_Data_To_Server(postdata);
 	 return ret;
 }

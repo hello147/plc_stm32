@@ -27,7 +27,7 @@ static char body_data_2[50];        //需发送数据
 char body_data_len=0;
 char jsondata[500];
 char postdata[380];
-char coredata[200];
+extern char coredata[200];
 int WroteAddr=100;
 uint8_t WriteBuf[212]={"qwertyuiop[]asdfghjkl;'zxcvbqwertyunm,./qwertyuiop[]asdfghjkl;'zxcvbnm,./qwertyuiop[]asdfghjkl;'zxcvbqwertyunm,./qwertyuiop[]asdfghjkl;'zxcvbnm,./qwertyuiop[]asdfghjkl;'zxcvbnm,./qwertyuiop[]asdfghjkl;'zxcvbnm,./"};
 
@@ -90,24 +90,15 @@ void packagedata()
 	  \r\n time:\"%d.%02d.%02d %02d:%02d:%02d\"",body_data_1,timer.w_year,timer.w_month,timer.w_date,timer.hour,timer.min,timer.sec);
 }
 
-//打包成post请求
-void packagepost(char *ip,char *port)
+//要发送的数据进行打包
+void packagepost(char *ip,char *port,char *msg)
 {
    char content_page[50];
 	 char content_len[300];
 	 char content_host[50];
 	 char content_type[] = "Content-Type:application/json-patch+json\r\n";
-	   address=usart_data.tx_buf[3]+40001;
-   
-
-  	//USART2_printf("%d年%02d月%02d日%02d点%02d分%02d秒\r\n",timer.w_year,timer.w_month,timer.w_date,timer.hour,timer.min,timer.sec);		
-    //r_defalutconfig();
-    //sprintf(content_page,"POST %s HTTP/1.1\r\n",page);
-    //sprintf(content_host,"HOST: %s:%d\r\n",ip,port);  
-	  //sprintf(postdata,"{\r\n");
-	  //strcat(senddata,device.machineid);
-   	
-	  sprintf(senddata,"{\r\n machineid:\"%s\",\r\n simid:\"%s\",\r\n%s\r\n}",device.machineid,device.simid,coredata);
+	 address=usart_data.tx_buf[3]+40001;
+	 sprintf(senddata,"{\r\n machineid:\"%s\",\r\n simid:\"%s\",\r\n%s\r\n}",device.machineid,device.simid,coredata);
 	  //sprintf(content_len,"Content-Length: %d\r\n",strlen(senddata));
     sprintf(postdata,"%s",senddata);
    	
@@ -146,7 +137,6 @@ void write()
 				{
 					E2promWriteByte(WroteAddr+i,coredata[i]);
 				}
-				
 				BSP_Printf("写满了,从头写\r\n");
 		}
 }
