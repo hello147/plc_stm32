@@ -100,7 +100,7 @@ void SIM800_PWRKEY_OFF(void);
 void SIM800_GPRS_Restart(void);
 
 
-
+u8 SendPost_Server();
 u8 SIM800_Link_Server(void);
 u8 SIM800_Link_Server_AT(void);
 u8 SIM800_Link_Server_Powerkey(void);

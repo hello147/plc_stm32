@@ -23,9 +23,9 @@
 /********************************** 外部全局变量 ***************************************/
 extern volatile uint8_t ucTcpClosedFlag;
 /********************************** 测试函数声明 ***************************************/
-void                     ESP8266_StaTcpClient_UnvarnishTest  ( void );
+void ESP8266_StaTcpClient_UnvarnishTest  ( void );
 
-void packagepost(char *ip,char *port,char *page);
-
+void packagepost(char *ip,char *port);
+void Write_To_eeprom(int WriteAddr,u8 *DataToWrite,u8 Len);
 #endif
 

@@ -611,11 +611,6 @@
               <FileType>1</FileType>
               <FilePath>..\SYSTEM\iic\iic.c</FilePath>
             </File>
-            <File>
-              <FileName>24cxx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\SYSTEM\24cxx\24cxx.c</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>

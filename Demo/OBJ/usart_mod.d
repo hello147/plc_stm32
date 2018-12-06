@@ -16,3 +16,4 @@
 ..\obj\usart_mod.o: ..\USER\stm32f10x_it.h
 ..\obj\usart_mod.o: ..\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\usart_mod.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\usart_mod.o: ..\SYSTEM\device\device.h

@@ -6,6 +6,7 @@
 #include "stm32f10x_tim.h"
 #include "stm32f10x.h"
 #include <string.h>
+#include <device.h>
 extern usart_st  usart_data;
 extern modbus_rtust  modbus_data;
 extern unsigned int sec;
@@ -13,6 +14,7 @@ extern unsigned int sec;
 	extern char address;
 	extern char data[2];
 	extern  uint8_t check;
+	extern Device_Info device;  //代表本机
 #define usart_rx_buf_len    10 //定义接收区长度
 #define MAX_RE_TIME_COUNT 	10
 #define RT_TIME_OUT 				2
@@ -77,7 +79,7 @@ unsigned char  modbus_rev_deal()
     uint16_t  crc,rec_len;
     rec_len=0;
 	  crc=0;
-    if(usart_data.deal_flag==3)
+    if(	usart_data.deal_flag==3)
 		{
 	  rec_len=(unsigned short int)usart_data.rx_len_ed;
 		crc=(unsigned short int)usart_data.rx_buf[rec_len-2];

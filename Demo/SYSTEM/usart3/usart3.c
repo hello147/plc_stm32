@@ -41,7 +41,8 @@ void USART3_IRQHandler(void)
 			}else 
 			{
 				USART3_RX_STA|=1<<15;				//强制标记接收完成
-			} 
+			}
+     	
 		}		
 	}  									 
 }   

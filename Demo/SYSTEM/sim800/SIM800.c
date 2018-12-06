@@ -215,21 +215,21 @@ u8 Check_CSQ(void)
 	u8 p[50] = {0}; 
   	u8 signal=0;
 
-	while(signal < 5)
+	while(signal < 5&&count!=0)
 	{
 		delay_ms(2000);
-		while(count != 0)
-		{
+	
+		
 			ret = SIM800_Send_Cmd("AT+CSQ","+CSQ:",0,200);
 			if(ret == 3)
 			{
 				delay_ms(2000);
 			}
 			else if((ret == 0) || (ret == 1))
-				break;
-			
-			count--;
-		}		
+			{
+				device.netstatus=ERR_DISCONNECT;
+			  break;
+			}	
 		
 		if(ret == 0)
 		{
@@ -238,16 +238,17 @@ u8 Check_CSQ(void)
 			p2=(u8*)strstr((const char*)(p1),",");
 			p2[0]=0;//加入结束符
 			signal = atoi((const char *)(p1+2));
-			  
 			//判断信号质量，为零时直接改状态
 			if(signal==0)
 			{
-			device.netstatus=1;
+			device.netstatus=ERR_DISCONNECT;
 			}
 			sprintf((char*)p,"信号质量:%d",signal);
 			BSP_Printf("%s\r\n",p);
 		}
 		//AT指令的回文已经处理完成，清零
+		count--;
+			
 	}	
 	return ret;
 }
@@ -532,13 +533,13 @@ u8 ret = CMD_ACK_NONE;
 u8 Link_Server_AT(u8 mode,const char* ipaddr,const char *port)
 {
 	u8 count = COUNT_AT;
-	u8 ret = CMD_ACK_NONE;
+	u8 ret = 3;
 	u8 p[100]={0};
 	
-	if(mode)
-		;
-	else 
-		;
+//	if(mode)
+//		;
+//	else 
+//		;
 		
   	sprintf((char*)p,"AT+CIPSTART=\"%s\",\"%s\",\"%s\"",modetbl[mode],ipaddr,port);	
 
@@ -585,8 +586,6 @@ u8 Send_Data_To_Server(char* data)
 	if(ret==1) //如果发送失败
 		{
 		//dev.need_reset=1;
-		 
-	  
 		}
 	
 	if(ret == CMD_ACK_OK)		//发送数据
@@ -849,14 +848,14 @@ u8 SendPost_Server()
 	
 	
 	 packagedata();
-	 packagepost(ipaddr,port,"123");
+	 packagepost(ipaddr,port);
 	 ret = Send_Data_To_Server(postdata);
 	 return ret;
 }
 //通过at指令与ntp服务器建立连接
 void SIM800_ntpserver()
 {
-	u8 ret=0;
+	 u8 ret=0;
 	 char *timePtr = NULL;
 	if((ret = Disable_Echo()) == CMD_ACK_OK)
 		  

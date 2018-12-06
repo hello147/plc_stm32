@@ -8,7 +8,7 @@ void r_defalutconfig(void);
 void r_machineid(void);
 void r_simid(void);
 void r_timeperiod(void);
-
+ #define  bakbuffer_len  604
 typedef struct
 {
   uint8_t id[8];  //ЛњЦїТы

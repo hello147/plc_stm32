@@ -74,6 +74,8 @@ void TIM7_IRQHandler(void)
 				strcpy(device.sim_data,(const char *)USART3_RX_BUF);
 				device.msg_rec=1;
 			}
+			
+			
 	 Clear_Usart3();		    	//清零
 				
 //				if(device.ack2!=0)
@@ -92,17 +94,19 @@ void TIM5_IRQHandler(void)
 	if(TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET)					  //是更新中断
 	{	
 		TIM_ClearITPendingBit(TIM5, TIM_IT_Update);  
-		if(seccount<300)
+		if(seccount<120)
 		{
 		 seccount++;
 		}
-		else if(seccount>=300)
+		else if(seccount>=120)
 		{
 		  mincount++;
 			seccount=0;
 			//device.status=4;//设置为连接服务器
 		  device.needreset=1;
-			BSP_Printf("5分钟过去了");
+			BSP_Printf("2分钟过去了");
+			TIM_SetCounter(TIM5,0); 
+			TIM_Cmd(TIM5,DISABLE);
 		}
 //		if(mincount>5)
 //		{
