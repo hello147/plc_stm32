@@ -98,7 +98,7 @@ void packagepost(char *ip,char *port,char *msg)
 	 char content_host[50];
 	 char content_type[] = "Content-Type:application/json-patch+json\r\n";
 	 address=usart_data.tx_buf[3]+40001;
-	 sprintf(senddata,"{\r\n machineid:\"%s\",\r\n simid:\"%s\",\r\n%s\r\n}",device.machineid,device.simid,coredata);
+	 sprintf(senddata,"{\r\n machineid:\"%s\",\r\n simid:\"%s\",\r\n%s\r\n}",device.machineid,device.simid,msg);
 	  //sprintf(content_len,"Content-Length: %d\r\n",strlen(senddata));
     sprintf(postdata,"%s",senddata);
    	
