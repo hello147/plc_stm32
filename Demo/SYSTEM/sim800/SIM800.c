@@ -848,11 +848,13 @@ u8 SendPost_Server()
  u8 ret = CMD_ACK_NONE;
 	
 	
-	 packagedata();
+
 	 packagepost(ipaddr,port,coredata);
 	 ret = Send_Data_To_Server(postdata);
 	 return ret;
 }
+
+
 //通过at指令与ntp服务器建立连接
 void SIM800_ntpserver()
 {

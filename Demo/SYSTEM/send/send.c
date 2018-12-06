@@ -103,9 +103,6 @@ void packagepost(char *ip,char *port,char *msg)
     sprintf(postdata,"%s",senddata);
    	
 }
-
-
-
 /**
 ** 函数描述：向eeprom指定地址写入制定长度字符串
 **
@@ -117,7 +114,7 @@ void write()
 {
 	  int size;
 		int i=0;
-	size=sizeof(coredata);
+  	size=sizeof(coredata);
 	//size=212;
 		if((size+WroteAddr)<=32765)
 		{

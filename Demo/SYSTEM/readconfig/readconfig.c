@@ -45,6 +45,7 @@ void readbak()
 	   Send_Data_To_Server(ReadBuf);
 		 BSP_Printf("发送了备份：");
 	 }
+	  //packagepost(ipaddr,port,coredata);
 //	 for(i=0;i<sizeof(ReadBuf);i++)
 //			{
 //			 E2promWriteByte(bakbuffer_len+i+100,"0");
