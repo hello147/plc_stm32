@@ -8,7 +8,7 @@ extern Device_Info device;
 uint8_t datatemp[65];
  uint8_t defalut[20];
  int readedaddr=100;
- uint8_t ReadBuf[200];
+ uint8_t ReadBuf[bakbuffer_len];
 extern char coredata[200];
 //读取配置
 void r_defalutconfig()
@@ -46,6 +46,7 @@ void readbak()
 		}
 		 BSP_Printf("擦除了\r\n");
 		readedaddr+=200;
+	//如果读出来有data标志
 		if(strstr(ReadBuf,"data")!=NULL)
 		 {
 			 //Send_Data_To_Server(ReadBuf);
@@ -60,12 +61,13 @@ void readbak()
 	}
 	
 	 BSP_Printf("读出了备份：");
+	
+	
 //		for(i=0;i<sizeof(ReadBuf);i++)
 //		{  
 //			BSP_Printf("%c",ReadBuf[i]);	
 //		}
-	//如果读出来有data标志
-   
+ 
 	  //packagepost(ipaddr,port,coredata);
 //	 for(i=0;i<sizeof(ReadBuf);i++)
 //			{
