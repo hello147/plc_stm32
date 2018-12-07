@@ -42,19 +42,21 @@ compiling readconfig.c...
   		E2promReadBuffer(readedaddr,ReadBuf,200);
 ..\SYSTEM\readconfig\readconfig.c(44): warning:  #223-D: function "E2promWriteByte" declared implicitly
   		  E2promWriteByte(readedaddr+i,"0");
-..\SYSTEM\readconfig\readconfig.c(46): warning:  #223-D: function "USART2_printf" declared implicitly
+..\SYSTEM\readconfig\readconfig.c(45): warning:  #223-D: function "delay_ms" declared implicitly
+  			delay_ms(10);
+..\SYSTEM\readconfig\readconfig.c(47): warning:  #223-D: function "USART2_printf" declared implicitly
   		 BSP_Printf("擦除了\r\n");
-..\SYSTEM\readconfig\readconfig.c(48): warning:  #223-D: function "strstr" declared implicitly
+..\SYSTEM\readconfig\readconfig.c(49): warning:  #223-D: function "strstr" declared implicitly
   		if(strstr(ReadBuf,"data")!=NULL)
-..\SYSTEM\readconfig\readconfig.c(52): warning:  #223-D: function "SendPost_Server" declared implicitly
+..\SYSTEM\readconfig\readconfig.c(53): warning:  #223-D: function "SendPost_Server" declared implicitly
   			 SendPost_Server(); 		//打包通用数据并发送
-..\SYSTEM\readconfig\readconfig.c(61): warning:  #223-D: function "USART2_printf" declared implicitly
+..\SYSTEM\readconfig\readconfig.c(62): warning:  #223-D: function "USART2_printf" declared implicitly
   	 BSP_Printf("读出了备份：");
-..\SYSTEM\readconfig\readconfig.c: 11 warnings, 0 errors
+..\SYSTEM\readconfig\readconfig.c: 12 warnings, 0 errors
 linking...
-Program Size: Code=24316 RO-data=1552 RW-data=344 ZI-data=7368  
+Program Size: Code=24312 RO-data=1552 RW-data=344 ZI-data=7368  
 FromELF: creating hex file...
-"..\OBJ\Template.axf" - 0 Error(s), 11 Warning(s).
+"..\OBJ\Template.axf" - 0 Error(s), 12 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -68,7 +70,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

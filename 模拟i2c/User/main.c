@@ -80,13 +80,13 @@ void HSI_Configuration(void)
 
 uint8_t MoniIIC = 0;
 uint16_t Cycle = 0;
-uint8_t ReadBuf[70];
+uint8_t ReadBuf[224];
 uint8_t WriteBuf[62]={"Id:N01-0001simid:17854153611preiod:20addr:118.024.157.134:8080"};
 
 uint8_t bTestOK = TRUE;
 int main(void)
 {
-  	uint16_t i;
+  	int i=0,m=0;
 	  uint8_t flg = 0;
     LED_GPIO_Config();
     HSI_Configuration();
@@ -100,12 +100,7 @@ int main(void)
   
   while(1)
 	{
-		for(i=0;i<62;i++)
-		{
-			E2promWriteByte(i,WriteBuf[i]);
-			
-			Delay(15); 
-		}
+		
 		//E2promWriteBuffer(0,WriteBuf,104);
 //		for(Cycle=0;Cycle<104;Cycle++)
 //		{
@@ -113,8 +108,8 @@ int main(void)
 //			//printf("读出了%x\r\n",ReadBuf[i]);
 //			//Delay(5); 
 //		}
-     E2promReadBuffer(0,ReadBuf,62);
-		for(i=0;i<62;i++)
+     E2promReadBuffer(0,ReadBuf,224);
+		for(i=0;i<224;i++)
 		{
 			if(WriteBuf[i]!=ReadBuf[i])
 			{
@@ -124,8 +119,16 @@ int main(void)
 			else
       {
 			  printf("读出了%c\r\n",ReadBuf[i]);
-			}		
+			}
+      	
 		}
+		
+//		for(m=162;m<224;m++)
+//		{
+//			E2promWriteByte(m,WriteBuf[m-162]);
+//			
+//			Delay(15); 
+//		}
 		
 		if(bTestOK)
 		{

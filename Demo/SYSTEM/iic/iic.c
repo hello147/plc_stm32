@@ -354,7 +354,7 @@ uint8_t E2promReadBuffer( unsigned  int addr ,unsigned char *buf,unsigned int le
 		buf++;
 		I2CStop(); 
 	}
-	DelayMs(5);
+//	DelayMs(15);
 	//I2CStop(); 
 	//return ReadValue;   
 }

@@ -122,7 +122,7 @@ void write()
 			{
 				
 			 E2promWriteByte(WroteAddr+i,coredata[i]);
-				delay_ms(5);
+				delay_ms(15);
 			}
 			WroteAddr+=size;
 			BSP_Printf("–¥»Î”¶º±rom\r\n");

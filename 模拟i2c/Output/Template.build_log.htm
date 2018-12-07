@@ -21,7 +21,7 @@ Target DLL:      Segger\JL2CM3.dll V2.99.29.0
 Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
-F:\plc+stm32\Ä£Äâi2c\Project\RVMDK£¨uv5£©\BH-F103.uvprojx
+F:\plc_stm32\Ä£Äâi2c\Project\RVMDK£¨uv5£©\BH-F103.uvprojx
 Project File Date:  11/29/2018
 
 <h2>Output:</h2>
@@ -32,21 +32,19 @@ compiling main.c...
    /**
 ..\..\User\main.c(97): warning:  #223-D: function "I2C_Config" declared implicitly
       I2C_Config();
-..\..\User\main.c(105): warning:  #223-D: function "E2promWriteByte" declared implicitly
-  			E2promWriteByte(i,WriteBuf[i]);
-..\..\User\main.c(107): warning:  #223-D: function "Delay" declared implicitly
+..\..\User\main.c(111): warning:  #223-D: function "E2promReadBuffer" declared implicitly
+       E2promReadBuffer(0,ReadBuf,224);
+..\..\User\main.c(136): warning:  #223-D: function "Delay" declared implicitly
   			Delay(15); 
-..\..\User\main.c(116): warning:  #223-D: function "E2promReadBuffer" declared implicitly
-       E2promReadBuffer(0,ReadBuf,62);
-..\..\User\main.c(133): warning:  #223-D: function "Delay" declared implicitly
-  			Delay(15); 
+..\..\User\main.c(89): warning:  #177-D: variable "m"  was declared but never referenced
+    	int i=0,m=0;
 ..\..\User\main.c(90): warning:  #177-D: variable "flg"  was declared but never referenced
   	  uint8_t flg = 0;
-..\..\User\main.c: 7 warnings, 0 errors
+..\..\User\main.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=6720 RO-data=336 RW-data=112 ZI-data=1096  
+Program Size: Code=6696 RO-data=336 RW-data=112 ZI-data=1248  
 FromELF: creating hex file...
-"..\..\Output\Template.axf" - 0 Error(s), 7 Warning(s).
+"..\..\Output\Template.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 

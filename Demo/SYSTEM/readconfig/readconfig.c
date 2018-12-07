@@ -7,7 +7,7 @@
 extern Device_Info device; 
 uint8_t datatemp[65];
  uint8_t defalut[20];
- int readedaddr;
+ int readedaddr=100;
  uint8_t ReadBuf[200];
 extern char coredata[200];
 //读取配置
@@ -35,13 +35,14 @@ void readbak()
 {
 	 int i;
 	
-	if(readedaddr<1100)
+	while(readedaddr<1100)
 	{
 	  
 		E2promReadBuffer(readedaddr,ReadBuf,200);
 		for(i=0;i<200;i++)
 		{
 		  E2promWriteByte(readedaddr+i,"0");
+			delay_ms(10);
 		}
 		 BSP_Printf("擦除了\r\n");
 		readedaddr+=200;
@@ -53,7 +54,7 @@ void readbak()
 			 BSP_Printf("发送了备份\r\n");
 		 }
 	}
-	else if(readedaddr>1100)
+	 if(readedaddr>1100)
 	{
 	  readedaddr=100;
 	}

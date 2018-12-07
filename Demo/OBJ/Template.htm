@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Dec 06 16:32:40 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Dec 07 15:06:36 2018
 <BR><P>
 <H3>Maximum Stack Usage =        552 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1315,6 +1315,7 @@ Global Symbols
 
 <P><STRONG><a name="[85]"></a>delay_ms</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, delay.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readbak
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_SMS_Notif
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_CSCS_Set
@@ -2057,11 +2058,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[95]"></a>readbak</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, readconfig.o(.text))
+<P><STRONG><a name="[95]"></a>readbak</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, readconfig.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 448 + Unknown Stack Size
 <LI>Call Chain = readbak &rArr; SendPost_Server &rArr; Send_Data_To_Server &rArr; SIM800_Send_Cmd &rArr; u3_printf &rArr; USART2_printf &rArr; __c89vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendPost_Server
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendPost_Server
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;E2promReadBuffer
@@ -2169,7 +2171,7 @@ Global Symbols
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CStart
 </UL>
 
-<P><STRONG><a name="[117]"></a>E2promReadBuffer</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, iic.o(.text))
+<P><STRONG><a name="[117]"></a>E2promReadBuffer</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, iic.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = E2promReadBuffer &rArr; I2CReadByte &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CReadByte
@@ -2177,7 +2179,6 @@ Global Symbols
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CSlaveAck
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CStop
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CStart
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readbak
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_defalutconfig
@@ -2821,7 +2822,6 @@ Local Symbols
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CWriteByte
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CStop
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CStart
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;E2promReadBuffer
 </UL>
 
 <P><STRONG><a name="[4e]"></a>_printf_input_char</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, _printf_char_common.o(.text))
