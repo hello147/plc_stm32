@@ -111,24 +111,23 @@ int main(void)
      E2promReadBuffer(0,ReadBuf,224);
 		for(i=0;i<224;i++)
 		{
-			if(WriteBuf[i]!=ReadBuf[i])
-			{
-				bTestOK = FALSE;
-				break;
-			}
-			else
-      {
+//			if(WriteBuf[i]!=ReadBuf[i])
+//			{
+//				bTestOK = FALSE;
+//				break;
+//			}
+//			else
+//      {
 			  printf("¶Á³öÁË%c\r\n",ReadBuf[i]);
-			}
-      	
+//			} 	
 		}
 		
-//		for(m=162;m<224;m++)
-//		{
-//			E2promWriteByte(m,WriteBuf[m-162]);
-//			
-//			Delay(15); 
-//		}
+		for(m=0;m<62;m++)
+		{
+			E2promWriteByte(m,WriteBuf[m]);
+			
+			Delay(15); 
+		}
 		
 		if(bTestOK)
 		{
