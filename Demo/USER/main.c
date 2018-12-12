@@ -82,6 +82,8 @@ char coredata[200];
 					
 					break;
 				case 3:
+					//∂¡»°∂Ã–≈
+				  
 					break;
 				case 4:
 					break;

@@ -40,7 +40,8 @@ extern struct  STRUCT_USARTx_sim_Fram                                  //´®¿ÚÊý¾
 //´æ´¢PCB_IDµÄÊý×é£¨Ò²¾ÍÊÇSIM¿¨µÄICCID£©
 #define LENGTH_ICCID_BUF 20     								//ICCIDµÄ³¤¶ÈÊÇ20¸ö×Ö·û
 extern char ICCID_BUF[LENGTH_ICCID_BUF+1];
-#define OFFSET_ICCID 2                          //
+#define OFFSET_ICCID 2 
+#define OFFSET_Num   13
 
 //´æ´¢Éè±¸ÖØ·¢ÃüÁîµÄÊý×é
 #define LENGTH_RESEND 35

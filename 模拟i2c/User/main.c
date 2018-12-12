@@ -81,7 +81,7 @@ void HSI_Configuration(void)
 uint8_t MoniIIC = 0;
 uint16_t Cycle = 0;
 uint8_t ReadBuf[224];
-uint8_t WriteBuf[62]={"Id:N01-0001simid:17854153611preiod:20addr:118.024.157.134:8080"};
+uint8_t WriteBuf[72]={"Id:N01-0001simid:17854153611preiod:20addr:118.024.157.134:8080rstime:120"};
 
 uint8_t bTestOK = TRUE;
 int main(void)
@@ -109,7 +109,7 @@ int main(void)
 //			//Delay(5); 
 //		}
      E2promReadBuffer(0,ReadBuf,224);
-		for(i=0;i<224;i++)
+		for(i=0;i<72;i++)
 		{
 //			if(WriteBuf[i]!=ReadBuf[i])
 //			{
@@ -122,7 +122,7 @@ int main(void)
 //			} 	
 		}
 		
-		for(m=0;m<62;m++)
+		for(m=0;m<72;m++)
 		{
 			E2promWriteByte(m,WriteBuf[m]);
 			

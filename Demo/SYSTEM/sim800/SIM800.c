@@ -29,7 +29,7 @@ struct  STRUCT_USARTx_sim_Fram strSIM800_Fram_Record = { 0 };
 
 //存储PCB_ID的数组（也就是SIM卡的ICCID）
 char ICCID_BUF[LENGTH_ICCID_BUF+1] = {0};
-
+char Number_BUF[11];
 t_DEV dev={0};
 const char *msg_device="000";
 
@@ -86,7 +86,51 @@ u8 SIM800_Send_Cmd(char * cmd, char* reply1, char* reply2, u32 waittime)
 	//	BSP_Printf("USART BUF:%s\r\n",USART3_RX_BUF);		 
 	  return ret;
 } 
+  
+u8 Get_Number(void)
+{
+	u8 index = 0;
+	char *p_temp = NULL;
+	u8 count = COUNT_AT;
+	u8 ret = CMD_ACK_NONE;
+	
+	while(count != 0)
+	{
+		ret = SIM800_Send_Cmd(" AT+CNUM","CNUM",0,200);
+		if(ret == CMD_ACK_NONE)
+		{
+			delay_ms(2000);
+		}
+		
+		else if(ret == CMD_ACK_OK)
+		{
+			if(strstr(device.sim_data, "AT+CNUM")==NULL)
+				break;
+			else
+				Disable_Echo();
+		}
+		else if(ret == CMD_ACK_DISCONN)
+			break;
+		 count--;
+	}
 
+	if(ret == CMD_ACK_OK)	
+	{
+		//AT指令已经指令完成，下面对返回值进行处理
+		p_temp = device.sim_data;
+		memset(ICCID_BUF, 0, sizeof(Number_BUF));
+		//提取Number_BUF信息到全局变量Number_BUF
+		for(index = 0;index < 11;index++)
+		{
+			Number_BUF[index] = *(p_temp+OFFSET_Num+index);
+			 strcpy(device.simid,Number_BUF);
+		}
+		BSP_Printf("Number_BUF:%s\r\n",Number_BUF);
+	}
+	//AT指令的回文已经处理完成，清零
+	
+	return ret;
+}
 
 
 u8 Check_Module(void)
@@ -292,7 +336,7 @@ u8 Get_ICCID(void)
 
 	if(ret == CMD_ACK_OK)	
 	{
-		//AT指令已经指令完成，下面对返回值进行处理
+	//AT指令已经指令完成，下面对返回值进行处理
 		p_temp = device.sim_data;
 		memset(ICCID_BUF, 0, sizeof(ICCID_BUF));
 		//提取ICCID信息到全局变量ICCID_BUF
@@ -301,6 +345,7 @@ u8 Get_ICCID(void)
 			ICCID_BUF[index] = *(p_temp+OFFSET_ICCID+index);
 		}
 		BSP_Printf("ICCID_BUF:%s\r\n",ICCID_BUF);
+		
 	}
 	//AT指令的回文已经处理完成，清零
 	//Clear_Usart3();
@@ -846,8 +891,6 @@ u8 Check_Xor_Sum(char* pBuf, u16 len)
 u8 SendPost_Server()
 {
  u8 ret = CMD_ACK_NONE;
-	
-	
 
 	 packagepost(ipaddr,port,coredata);
 	 ret = Send_Data_To_Server(postdata);
@@ -885,5 +928,23 @@ void SIM800_ntpserver()
 			Time_Update(newtimer.newyear,newtimer.newmonth,newtimer.newdate,newtimer.newhour,newtimer.newmin,newtimer.newsec);
 				 
 }
+//设置接到短信发到串口
+u8 setsmsmodel()
+{
+  u8 ret=0;
+	 ret = SIM800_Send_Cmd("AT+CNMI=2,2","OK","",1000);
+	 return ret;
+}
+
+//设置短信格式为text
+u8 setsms_layout()
+{
+   u8 ret=0;
+	 ret = SIM800_Send_Cmd("AT+CMGF=1","OK","",1000);
+	 return ret;
+}
+
+//判断有无短信发过来
+
 
 

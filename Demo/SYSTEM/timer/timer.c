@@ -23,11 +23,11 @@ void TIM6_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);  					//清除TIM6更新中断标志
 	   readcount++;
 		timecount++;
-		if(readcount==30)
+		if(readcount==device.period_time)
 			{
 				device.status=1;//每隔10s读取一次
 			}else
- 			if(readcount>30)
+ 			if(readcount>device.period_time)
 				{
 					readcount=0;
 				}
@@ -52,7 +52,7 @@ void TIM7_IRQHandler(void)
 		TIM_Cmd(TIM7, DISABLE);  //关闭TIM7
 		USART3_RX_BUF[USART3_RX_STA&0X7FFF]=0;	//添加结束符 
 		BSP_Printf("USART BUF:%s\r\n",USART3_RX_BUF); 
-		if((strstr((const char*)USART3_RX_BUF,"CLOSED")!=NULL) || (strstr((const char*)USART3_RX_BUF,"PDP: DEACT")!=NULL) || (strstr((const char*)USART3_RX_BUF,"PDP DEACT")!=NULL))
+		if((strstr((const char*)USART3_RX_BUF,"CLOSED")!=NULL) || (strstr((const char*)USART3_RX_BUF,"PDP: DEACT")!=NULL) || (strstr((const char*)USART3_RX_BUF,"CONNECT FAIL")!=NULL))
 		{
 			device.needreset=1;
 		}else{
@@ -73,11 +73,9 @@ void TIM7_IRQHandler(void)
 				memset(device.sim_data,0,sizeof(device.sim_data));
 				strcpy(device.sim_data,(const char *)USART3_RX_BUF);
 				device.msg_rec=1;
-			}
-			
-			
-	 Clear_Usart3();		    	//清零
-				
+			}			
+	    Clear_Usart3();		    	//清零
+		
 //				if(device.ack2!=0)
 //				{
 //					if(strstr((const char*)USART3_RX_BUF, device.ack1) != NULL)
@@ -98,7 +96,7 @@ void TIM5_IRQHandler(void)
 		{
 		 seccount++;
 		}
-		else if(seccount>=120)
+		else if(seccount>=device.rstart_time)
 		{
 		  mincount++;
 			seccount=0;

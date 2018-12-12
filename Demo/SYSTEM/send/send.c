@@ -120,8 +120,7 @@ void write()
 		{
 				for(i=0;i<size;i++)
 			{
-				
-			 E2promWriteByte(WroteAddr+i,coredata[i]);
+			  E2promWriteByte(WroteAddr+i,coredata[i]);
 				delay_ms(15);
 			}
 			WroteAddr+=size;

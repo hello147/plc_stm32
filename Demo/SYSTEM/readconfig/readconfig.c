@@ -4,8 +4,8 @@
 #include "device.h"
 #include "usart2.h"
  dev_configration dev_config={0};
-extern Device_Info device; 
-uint8_t datatemp[65];
+extern struct Device_Info device; 
+uint8_t datatemp[72];
  uint8_t defalut[20];
  int readedaddr=100;
  uint8_t ReadBuf[bakbuffer_len];
@@ -14,20 +14,48 @@ extern char coredata[200];
 void r_defalutconfig()
 {
 	int i=0;
-	E2promReadBuffer(0,datatemp,63);
-	BSP_Printf("读取配置成功\r\n");	
+	int a=0,b=0;
+	
+	if(Get_Number() == 0)
+	 {
+	  for(i=0;i<11;i++)
+		 {
+		   E2promWriteByte(i+17,device.simid[i]);
+			 Delay(15); 
+		 }
+	 }
+	 if(setsms_layout()==0)
+	 {	BSP_Printf("设置短信为text格式\r\n");	}
+	 if(setsmsmodel()==0)
+	 {  BSP_Printf("设置短信直接发到串口成功\r\n"); }
+
+	E2promReadBuffer(0,datatemp,72);
+	BSP_Printf("读取默认配置成功\r\n");	
 	BSP_Printf("\r\n");	
-	memset(device.simid,0,11);
+	memset(device.simid,0,12);
 	strncpy(device.machineid,datatemp+3,8);//截取机器码
 	strncpy(device.simid,datatemp+17,11);//截取手机号码
 	strncpy(device.period,datatemp+35,2);//截取时间间隔
   strncpy(device.ipaddress,datatemp+42,15);//截取ip
-  strncpy(device.port,datatemp+58,4);//截取端口
-	BSP_Printf("机器码%s%s%s%s%s\r\n",device.machineid,device.simid,device.period,device.ipaddress,device.port);
-  BSP_Printf("手机号%s\r\n",device.simid);
-	BSP_Printf("间隔%s\r\n",device.period);
-	BSP_Printf("ip%s\r\n",device.ipaddress);
-  BSP_Printf("端口%s\r\n",device.port);
+  strncpy(device.port,datatemp+57,5);//截取端口
+	strncpy(device.rstime,datatemp+69,3);//截取重启时间
+
+	 	  a=atoi(device.period);
+	  b=atoi(device.rstime);
+	//device.rstart_time=device.rstime[0]*100+device.rstime[1]*10+device.rstime[2];
+	//device.period_time=(int)device.period[0]*10+(int)device.period[1];
+	
+  //BSP_Printf("period_0%d\r\n",(int)device.period[0]);
+  //BSP_Printf("period_1%d\r\n",(int)device.period[1]);
+
+	device.period_time=a;
+	device.rstart_time=b;
+	BSP_Printf("机器码%s\r\n",device.machineid);
+  BSP_Printf("手机号%s \r\n",device.simid);
+	BSP_Printf("间隔%d    %d\r\n",device.period_time,a);
+	BSP_Printf("ip%s \r\n",device.ipaddress);
+  BSP_Printf("端口%s \r\n",device.port);
+  BSP_Printf("重启时间%d     %d\r\n",device.rstart_time,b);
 }
 
 //读取存在本地的应急数据

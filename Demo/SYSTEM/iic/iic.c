@@ -13,9 +13,6 @@
 #define  I2C1_DELAY           	5                                                        // 
 #define  E2PROM1_ADDR_SIZE	16
 
-
-
-
 void Delay(u16 speed)
 {
 	u16 i;
@@ -78,7 +75,7 @@ void I2CStop( void )
 *函数功能：I2C从机设备应答查询 
 *输入参数： 
 *输出参数： 
-*备           注： 返回SET说明有应答
+*备           注： 返回SET说明有应答 
 **************************************************************/ 
 unsigned char I2CSlaveAck( void ) 
 { 
