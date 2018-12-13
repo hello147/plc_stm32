@@ -42,7 +42,7 @@ extern struct  STRUCT_USARTx_sim_Fram                                  //´®¿ÚÊý¾
 extern char ICCID_BUF[LENGTH_ICCID_BUF+1];
 #define OFFSET_ICCID 2 
 #define OFFSET_Num   13
-
+#define swap16(x) (x&0XFF)<<8|(x&0XFF00)>>8	//¸ßµÍ×Ö½Ú½»»»ºê¶¨Òå
 //´æ´¢Éè±¸ÖØ·¢ÃüÁîµÄÊý×é
 #define LENGTH_RESEND 35
 extern char Resend_Buffer[LENGTH_RESEND];

@@ -11,6 +11,7 @@
 #include "rtc.h"
 #include "stm32f10x.h"
 #include "integer.h"
+#include "ff.h"//firecc936.c文件中：ff_convert()函数实现unicode与gbk互转功能
 #define COUNT_AT 3
 static uint8_t MaxMessAdd=50;
 extern Device_Info device;  //代表本机
@@ -993,6 +994,70 @@ uint8_t readmessage(char *str)
 	  *str=0;
 			return 1;
 }
+
+
+   //将1个字符转换为16进制数字
+//chr:字符,0~9/A~F/a~F
+//返回值:chr对应的16进制数值
+u8 sim800c_chr2hex(u8 chr)
+{
+	if(chr>='0'&&chr<='9')return chr-'0';
+	if(chr>='A'&&chr<='F')return (chr-'A'+10);
+	if(chr>='a'&&chr<='f')return (chr-'a'+10); 
+	return 0;
+}
+//将1个16进制数字转换为字符
+//hex:16进制数字,0~15;
+//返回值:字符
+u8 sim800c_hex2chr(u8 hex)
+{
+	if(hex<=9)return hex+'0';
+	if(hex>=10&&hex<=15)return (hex-10+'A'); 
+	return '0';
+}
+//unicode gbk 转换函数
+//src:输入字符串
+//dst:输出(uni2gbk时为gbk内码,gbk2uni时,为unicode字符串)
+//mode:0,unicode到gbk转换;
+//     1,gbk到unicode转换;
+void sim800c_unigbk_exchange(u8 *src,u8 *dst,u8 mode)
+{
+	u16 temp; 
+	u8 buf[2];
+	if(mode)//gbk 2 unicode
+	{
+		while(*src!=0)
+		{
+			if(*src<0X81)	//非汉字
+			{
+				temp=(u16)ff_convert((WCHAR)*src,1);
+				src++;
+			}else 			//汉字,占2个字节
+			{
+				buf[1]=*src++;
+				buf[0]=*src++; 
+				temp=(u16)ff_convert((WCHAR)*(u16*)buf,1); 
+			}
+			*dst++=sim800c_hex2chr((temp>>12)&0X0F);
+			*dst++=sim800c_hex2chr((temp>>8)&0X0F);
+			*dst++=sim800c_hex2chr((temp>>4)&0X0F);
+			*dst++=sim800c_hex2chr(temp&0X0F);
+		}
+	}else	//unicode 2 gbk
+	{ 
+		while(*src!=0)
+		{
+			buf[1]=sim800c_chr2hex(*src++)*16;
+			buf[1]+=sim800c_chr2hex(*src++);
+			buf[0]=sim800c_chr2hex(*src++)*16;
+			buf[0]+=sim800c_chr2hex(*src++);
+ 			temp=(u16)ff_convert((WCHAR)*(u16*)buf,0);
+			if(temp<0X80){*dst=temp;dst++;}
+			else {*(u16*)dst=swap16(temp);dst+=2;}
+		} 
+	}
+	*dst=0;//添加结束符
+} 
 
 
 

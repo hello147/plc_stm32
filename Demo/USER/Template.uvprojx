@@ -612,11 +612,6 @@
               <FilePath>..\SYSTEM\iic\iic.c</FilePath>
             </File>
             <File>
-              <FileName>mycc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mycc.c</FilePath>
-            </File>
-            <File>
               <FileName>ff.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\ff.h</FilePath>
@@ -635,6 +630,16 @@
               <FileName>fontupd.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\fontupd.h</FilePath>
+            </File>
+            <File>
+              <FileName>cc936.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\cc936.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ff.c</FilePath>
             </File>
           </Files>
         </Group>

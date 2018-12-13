@@ -25,3 +25,5 @@
 ..\obj\sim800.o: ..\SYSTEM\send\send.h
 ..\obj\sim800.o: ..\SYSTEM\rtc\rtc.h
 ..\obj\sim800.o: ..\USER\integer.h
+..\obj\sim800.o: ..\USER\ff.h
+..\obj\sim800.o: ..\USER\ffconf.h

@@ -10,8 +10,10 @@
 Device_Info device;  //代表本机
 char coredata[200];
 char namenum[20*4]={0};
-char str[30]={0};
+char str[200]={0};
+
 uint8_t IsRead=0;
+char gbkstr[200]={0};
  int main(void)
  {	
 	 delay_init();
@@ -92,6 +94,9 @@ uint8_t IsRead=0;
 				{
 				
 					BSP_Printf("短信内容:  %s",str);
+					
+					sim800c_unigbk_exchange(str,gbkstr,0);
+					BSP_Printf("转换后内容: %s %s",str,gbkstr);
 					IsRead=0;
 					device.status=0;
 				}
