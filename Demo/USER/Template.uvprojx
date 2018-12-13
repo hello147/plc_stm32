@@ -611,6 +611,31 @@
               <FileType>1</FileType>
               <FilePath>..\SYSTEM\iic\iic.c</FilePath>
             </File>
+            <File>
+              <FileName>mycc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mycc.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ff.h</FilePath>
+            </File>
+            <File>
+              <FileName>integer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\integer.h</FilePath>
+            </File>
+            <File>
+              <FileName>ffconf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ffconf.h</FilePath>
+            </File>
+            <File>
+              <FileName>fontupd.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\fontupd.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

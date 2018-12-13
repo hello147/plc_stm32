@@ -10,7 +10,9 @@
 #include "send.h"
 #include "rtc.h"
 #include "stm32f10x.h"
+#include "integer.h"
 #define COUNT_AT 3
+static uint8_t MaxMessAdd=50;
 extern Device_Info device;  //代表本机
 u8 mode = 0;				//0,TCP连接;1,UDP连接
 const char *modetbl[2] = {"TCP","UDP"};//连接模式
@@ -944,7 +946,53 @@ u8 setsms_layout()
 	 return ret;
 }
 
-//判断有无短信发过来
+//读取短信内容
+//形参：	
+//			num：		保存发件人号码(unicode编码格式的字符串)
+//			str：		保存短信内容(unicode编码格式的字符串)
+//返回值：	0表示失败
+//			1表示成功读取到短信，该短信未读（此处是第一次读，读完后会自动被标准为已读）
+//			2表示成功读取到短信，该短信已读
+uint8_t readmessage(char *str)
+{
+    uint8_t len;
+		char *redata;
+    char cmd[100]={0};
+	  char result=0;
+	
+	 	//strcpy(redata,"+CMT: 4486178541536115,54,718/12/13,10:48:124328iiiii");
+		 redata=device.message;
+		 len=strlen(redata);
+			
+		while(*redata != '"')
+	{
+		len--;
+		if(len==0)
+		{
+			return 0;
+		}
+		redata++;
+	}
+//	  redata+=4;
+//			while(*redata != '"')
+//			{
+//				*num++ = *redata++;
+//				len--;
+//			}
+//			*num = 0; 
+//  	
+		
+	  redata+=44;   
+    	//发送方号码为11位时，从44开始截取。
+	    //发送放号码为11+X位时，从44+X开始截取
+		while(*redata!='\r')
+		{
+		*str++=*redata++;
+				len--;
+		}
+	  *str=0;
+			return 1;
+}
 
 
 

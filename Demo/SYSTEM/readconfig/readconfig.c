@@ -9,6 +9,7 @@ uint8_t datatemp[72];
  uint8_t defalut[20];
  int readedaddr=100;
  uint8_t ReadBuf[bakbuffer_len];
+ 
 extern char coredata[200];
 //读取配置
 void r_defalutconfig()
@@ -50,12 +51,15 @@ void r_defalutconfig()
 
 	device.period_time=a;
 	device.rstart_time=b;
+
+  
 	BSP_Printf("机器码%s\r\n",device.machineid);
   BSP_Printf("手机号%s \r\n",device.simid);
 	BSP_Printf("间隔%d    %d\r\n",device.period_time,a);
 	BSP_Printf("ip%s \r\n",device.ipaddress);
   BSP_Printf("端口%s \r\n",device.port);
   BSP_Printf("重启时间%d     %d\r\n",device.rstart_time,b);
+
 }
 
 //读取存在本地的应急数据

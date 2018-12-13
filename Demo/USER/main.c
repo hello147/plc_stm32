@@ -9,6 +9,9 @@
 
 Device_Info device;  //代表本机
 char coredata[200];
+char namenum[20*4]={0};
+char str[30]={0};
+uint8_t IsRead=0;
  int main(void)
  {	
 	 delay_init();
@@ -29,6 +32,7 @@ char coredata[200];
 	 device.msg_rec=0;
 	 device.status=0;
 	 device.updatime=0;
+	 
 	 SIM800_ntpserver();
 	 SIM800_Link_Server_AT();//连接服务器
 	 //delay_ms(2000);
@@ -83,10 +87,16 @@ char coredata[200];
 					break;
 				case 3:
 					//读取短信
-				  
+				  	IsRead=readmessage(str);		
+				if(IsRead)
+				{
+				
+					BSP_Printf("短信内容:  %s",str);
+					IsRead=0;
+					device.status=0;
+				}
 					break;
-				case 4:
-					break;
+				
 			
 			}
 	 }	 

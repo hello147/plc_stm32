@@ -13,6 +13,8 @@ extern Device_Info device;  //代表本机
 	int timecount=0;
 	int seccount=0;//秒数
 	int mincount=0;//分钟数
+	
+
 //定时器6中断服务程序		    
 void TIM6_IRQHandler(void)
 {
@@ -73,7 +75,16 @@ void TIM7_IRQHandler(void)
 				memset(device.sim_data,0,sizeof(device.sim_data));
 				strcpy(device.sim_data,(const char *)USART3_RX_BUF);
 				device.msg_rec=1;
-			}			
+			} 
+			 if(strstr((const char*)USART3_RX_BUF, "+CMT") != NULL)
+			{
+				   
+				    memset(device.message,0,sizeof(device.message));
+           	strcpy(device.message,(const char *)USART3_RX_BUF);
+				    device.msg_rec=1;
+				   device.status=3;
+      }			
+			
 	    Clear_Usart3();		    	//清零
 		
 //				if(device.ack2!=0)

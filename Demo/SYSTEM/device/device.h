@@ -28,6 +28,7 @@ typedef struct Device_Info
 	u8 rstime[3];
 	int rstart_time;   //转化后的重启时间
 	int period_time;  //转化后的时间间隔
+	u8 message[100];
 } Device_Info;
 
 
