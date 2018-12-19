@@ -983,7 +983,7 @@ uint8_t readmessage(char *str)
 //			*num = 0; 
 //  	
 		
-	  redata+=44;   
+	  redata+=46;   
     	//发送方号码为11位时，从44开始截取。
 	    //发送放号码为11+X位时，从44+X开始截取
 		while(*redata!='\r')
@@ -1058,6 +1058,25 @@ void sim800c_unigbk_exchange(u8 *src,u8 *dst,u8 mode)
 	}
 	*dst=0;//添加结束符
 } 
+void sim800_unnicode2asiicc(u8 *src,u16 *dst)
+{
+	u16 temp; 
+	u16 buf[2];
+while(*src!=0)
+		{
+			buf[1]=sim800c_chr2hex(*src++)*16;
+			buf[1]+=sim800c_chr2hex(*src++);
+			buf[0]=sim800c_chr2hex(*src++)*16;
+			buf[0]+=sim800c_chr2hex(*src++);
+ 		  //dst[i]=buf;
+			if(temp<0xffff)	
+			{  
+				temp=(buf[1]<<8)+buf[0];
+				*dst=temp;dst++;
+			}
+			
+		} 
+}
 
 
 

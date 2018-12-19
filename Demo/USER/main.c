@@ -14,6 +14,8 @@ char str[200]={0};
 
 uint8_t IsRead=0;
 char gbkstr[200]={0};
+u16 ascstr[50]={0};
+char strings[5];
  int main(void)
  {	
 	 delay_init();
@@ -94,9 +96,11 @@ char gbkstr[200]={0};
 				{
 				
 					BSP_Printf("短信内容:  %s",str);
-					
-					sim800c_unigbk_exchange(str,gbkstr,0);
-					BSP_Printf("转换后内容: %s %s",str,gbkstr);
+					sim800_unnicode2asiicc(str,ascstr);       
+					//sim800c_unigbk_exchange(str,gbkstr,0);
+					BSP_Printf("转换后内容: %s %s\r\n",str,ascstr);
+					sprintf(strings,"%c%c%c",ascstr[12],ascstr[13],ascstr[14]);
+					BSP_Printf("收到了%s\r\n",strings);
 					IsRead=0;
 					device.status=0;
 				}
