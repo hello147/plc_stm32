@@ -158,9 +158,6 @@ void SysTick_Handler(void)
 			}	
 		}
 	}
-//	sec++;
-//	   if((usart_data.rev_time_outcnt>0)&&(usart_data.deal_flag==2))
-//			 usart_data.rev_time_outcnt--;
 }
 
 void claer()

@@ -22,53 +22,12 @@ Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
 F:\plc_stm32\Demo\USER\Template.uvprojx
-Project File Date:  12/12/2018
+Project File Date:  12/20/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Template'
-compiling main.c...
-..\SYSTEM\sim800\SIM800.h(104): warning:  #1295-D: Deprecated declaration SendPost_Server - give arg types
-  u8 SendPost_Server();
-..\SYSTEM\sim800\SIM800.h(112): warning:  #1295-D: Deprecated declaration SIM800_ntpserver - give arg types
-  	void SIM800_ntpserver();
-..\SYSTEM\mod\mod.h(62): warning:  #1295-D: Deprecated declaration packagepost - give arg types
-  void packagepost();
-..\SYSTEM\mod\mod.h(64): warning:  #1295-D: Deprecated declaration modbus_rev_deal - give arg types
-  unsigned char  modbus_rev_deal();
-main.c(29): warning:  #223-D: function "TIM_SetCounter" declared implicitly
-  	 TIM_SetCounter(TIM6,0); 
-main.c(31): warning:  #223-D: function "TIM_Cmd" declared implicitly
-  	 TIM_Cmd(TIM6,ENABLE);
-main.c(32): warning:  #223-D: function "Init_RTC" declared implicitly
-  	 Init_RTC();  //初始化时钟
-main.c(33): warning:  #223-D: function "I2C_Config" declared implicitly
-  	 I2C_Config();
-main.c(43): warning:  #223-D: function "r_defalutconfig" declared implicitly
-  	 r_defalutconfig();
-main.c(44): warning:  #223-D: function "readbak" declared implicitly
-  	 readbak();
-main.c(61): warning:  #223-D: function "read_hold_register_03" declared implicitly
-  					 read_hold_register_03(1,0,40);
-main.c(77): warning:  #223-D: function "packagedata" declared implicitly
-  						packagedata();
-main.c(78): warning:  #223-D: function "write" declared implicitly
-  						write();
-main.c(84): warning:  #223-D: function "packagedata" declared implicitly
-  					 packagedata();//打包实时数据
-main.c(87): warning:  #223-D: function "clear" declared implicitly
-  				   clear();
-main.c(94): warning:  #223-D: function "readmessage" declared implicitly
-  				  	IsRead=readmessage(str);		
-main.c(98): warning:  #223-D: function "USART2_printf" declared implicitly
-  					BSP_Printf("短信内容:  %s",str);
-main.c(99): warning:  #223-D: function "sim800_unnicode2asiicc" declared implicitly
-  					sim800_unnicode2asiicc(str,ascstr);       
-main.c: 18 warnings, 0 errors
-linking...
-Program Size: Code=25680 RO-data=176856 RW-data=352 ZI-data=8088  
-FromELF: creating hex file...
-"..\OBJ\Template.axf" - 0 Error(s), 18 Warning(s).
+"..\OBJ\Template.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -82,7 +41,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

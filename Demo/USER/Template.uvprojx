@@ -641,6 +641,11 @@
               <FileType>1</FileType>
               <FilePath>.\ff.c</FilePath>
             </File>
+            <File>
+              <FileName>swo_printf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\swo_printf.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

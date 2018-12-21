@@ -84,6 +84,7 @@ char strings[5];
 					 packagedata();//打包实时数据
 						SendPost_Server(); 		//打包通用数据并发送
 					 //BSP_Printf("上传了\r\n"); 
+						printf("上传完成\r\n");
 				   clear();
 				   device.status=0;
 					}

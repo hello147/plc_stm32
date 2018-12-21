@@ -6,7 +6,7 @@
      set to 'Yes') calls __io_putchar() */
   #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 #else
-  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+  //#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
 
 
@@ -98,23 +98,7 @@ void USART2_IRQHandler(void)                	//串口1中断服务程序
   * @param  None
   * @retval None
   */
-PUTCHAR_PROTOTYPE
-{
-  /* Place your implementation of fputc here */
-  /* e.g. write a character to the USART */
-  USART_SendData(USART1, (uint8_t) ch);
 
-  /* Loop until the end of transmission */
-  while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET)
-  {}
-//		  USART_SendData(USART2, (uint8_t) ch);
-
-//  /* Loop until the end of transmission */
-//  while (USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET)
-//  {}
-
-  return ch;
-}
 void USART2_printf (char *fmt, ...) 
 { 
 char buffer[200];  // CMD_BUFFER_LEN长度自己定义吧 

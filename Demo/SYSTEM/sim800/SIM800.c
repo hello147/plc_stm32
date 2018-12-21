@@ -1069,7 +1069,7 @@ while(*src!=0)
 			buf[0]=sim800c_chr2hex(*src++)*16;
 			buf[0]+=sim800c_chr2hex(*src++);
  		  //dst[i]=buf;
-			if(temp<0xffff)	
+			if(temp<0x99A0)	
 			{  
 				temp=(buf[1]<<8)+buf[0];
 				*dst=temp;dst++;
