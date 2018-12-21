@@ -1,0 +1,14 @@
+..\obj\diskio.o: diskio.c
+..\obj\diskio.o: diskio.h
+..\obj\diskio.o: integer.h
+..\obj\diskio.o: stm32f10x.h
+..\obj\diskio.o: ..\CORE\core_cm3.h
+..\obj\diskio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\diskio.o: system_stm32f10x.h
+..\obj\diskio.o: stm32f10x_conf.h
+..\obj\diskio.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\diskio.o: ..\USER\stm32f10x.h
+..\obj\diskio.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\diskio.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\diskio.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\diskio.o: ..\STM32F10x_FWLib\inc\misc.h

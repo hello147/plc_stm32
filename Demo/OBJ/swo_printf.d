@@ -1,0 +1,15 @@
+..\obj\swo_printf.o: swo_printf.c
+..\obj\swo_printf.o: stm32f10x.h
+..\obj\swo_printf.o: ..\CORE\core_cm3.h
+..\obj\swo_printf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\swo_printf.o: system_stm32f10x.h
+..\obj\swo_printf.o: stm32f10x_conf.h
+..\obj\swo_printf.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\swo_printf.o: ..\USER\stm32f10x.h
+..\obj\swo_printf.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\swo_printf.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\swo_printf.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\swo_printf.o: ..\STM32F10x_FWLib\inc\misc.h
+..\obj\swo_printf.o: ..\SYSTEM\usart\usart.h
+..\obj\swo_printf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\swo_printf.o: ..\SYSTEM\sys\sys.h
