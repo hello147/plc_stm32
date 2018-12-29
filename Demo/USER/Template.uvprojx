@@ -646,6 +646,11 @@
               <FileType>1</FileType>
               <FilePath>.\swo_printf.c</FilePath>
             </File>
+            <File>
+              <FileName>README.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\README.txt</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

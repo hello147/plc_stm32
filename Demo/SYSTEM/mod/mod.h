@@ -24,7 +24,7 @@ void Mod_USARTx_Config(void);
 typedef struct
 {
 	 char rx_buf[255];//接收的缓冲区
-	unsigned char tx_buf[255];//要发送的缓冲区
+	unsigned char tx_buf[30];//要发送的缓冲区
 
 	unsigned int  tx_len;//需要发送的数据长度
 	unsigned int  rx_len;//需要接收的数据长度
@@ -54,7 +54,7 @@ unsigned char check_485_sending(void);
 void read_input_register_03(unsigned char dev_add,unsigned short int addr,unsigned short int len);
 signed char read_input_register_04(unsigned char dev_add,unsigned short int addr,unsigned short int len);
 signed char read_discrete_register_02(unsigned char dev_add,unsigned short int addr,unsigned short int len);
-signed char set_hold_register_06(unsigned char dev_add,unsigned short int addr,unsigned short int val);
+signed char set_hold_register_06(unsigned char dev_add,unsigned short int addr,uint16_t val);
 signed char set_hold_registers_16(unsigned char dev_add,unsigned short int addr,unsigned short int len);
 uint16_t Modbus_CRC16( uint8_t *data_buf,uint16_t data_len); 
 u16 mc_check_crc16(u8 *buf,u16 len);

@@ -643,6 +643,7 @@ u8 Send_Data_To_Server(char* data)
 		u3_printf("%s",data);
 		delay_ms(100);
 		ret = SIM800_Send_Cmd((u8*)0x1A,"SEND OK",0,3000);
+		BSP_Printf("已完成一次发送  %d\r\n", ret);
 	}
 	else
 	{
@@ -652,7 +653,7 @@ u8 Send_Data_To_Server(char* data)
 		 //return ret;
 	}
 	
-	BSP_Printf("已完成一次发送: %d\r\n", ret);
+	
 	return ret;
 }
 
@@ -1069,7 +1070,7 @@ while(*src!=0)
 			buf[0]=sim800c_chr2hex(*src++)*16;
 			buf[0]+=sim800c_chr2hex(*src++);
  		  //dst[i]=buf;
-			if(temp<0x99A0)	
+			if(temp<0xFFFF)	
 			{  
 				temp=(buf[1]<<8)+buf[0];
 				*dst=temp;dst++;

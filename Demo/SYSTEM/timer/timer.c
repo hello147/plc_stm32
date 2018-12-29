@@ -185,8 +185,8 @@ void TIM7_Int_Init(u16 arr,u16 psc)
 	TIM_Cmd(TIM7,ENABLE);//开启定时器7
 	
 	NVIC_InitStructure.NVIC_IRQChannel = TIM7_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2 ;	//抢占优先级0
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;		    	//子优先级2
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority =2;	//抢占优先级0
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority =0;		    	//子优先级2
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			      	//IRQ通道使能
 	NVIC_Init(&NVIC_InitStructure);	//根据指定的参数初始化VIC寄存器
 	

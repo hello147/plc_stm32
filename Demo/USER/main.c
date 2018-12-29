@@ -16,6 +16,32 @@ uint8_t IsRead=0;
 char gbkstr[200]={0};
 u16 ascstr[50]={0};
 char strings[5];
+u8 address_str[4];
+u8 amount_str[4];
+u16 writeaddress;
+uint16_t writeamount_h,writeamount_l,writeamount;
+
+unsigned char HexToChar(unsigned char bChar)
+{
+	if((bChar>=0x30)&&(bChar<=0x39))
+	{
+		bChar -= 0x30;
+	}
+	else if((bChar>=0x41)&&(bChar<=0x46)) // Capital
+	{
+		bChar -= 0x37;
+	}
+	else if((bChar>=0x61)&&(bChar<=0x66)) //littlecase
+	{
+		bChar -= 0x57;
+	}
+	else 
+	{
+		bChar = 0xff;
+	}
+	return bChar;
+}
+
  int main(void)
  {	
 	 delay_init();
@@ -99,9 +125,22 @@ char strings[5];
 					BSP_Printf("短信内容:  %s",str);
 					sim800_unnicode2asiicc(str,ascstr);       
 					//sim800c_unigbk_exchange(str,gbkstr,0);
-					BSP_Printf("转换后内容: %s %s\r\n",str,ascstr);
+					BSP_Printf("转换后ASCII: %s %s\r\n",str,ascstr);
+					//BSP_Printf("转换后gbk: %s %s\r\n",str,gbkstr);
+					  if(ascstr[12]==0x0031)
+						{
+								
+						writeaddress=HexToChar(ascstr[21])*0x1000+HexToChar(ascstr[22])*0x0100+HexToChar(ascstr[23])*0x0010+HexToChar(ascstr[24])*0x0001;
+						writeamount=HexToChar(ascstr[29])*0x1000+HexToChar(ascstr[30])*0x0100+HexToChar(ascstr[31])*0x0010+HexToChar(ascstr[32])*0x0001;
+						//writeamount_l=HexToChar(ascstr[33])*0x1000+HexToChar(ascstr[34])*0x0100+HexToChar(ascstr[35])*0x0010+HexToChar(ascstr[36])*0x0001;
+						//writeamount=(writeamount_h<<16)+writeamount_l;
+								
+							BSP_Printf("转换出来，命令类型%x,地址%x,数值%x",HexToChar(ascstr[12]),writeaddress,writeamount);
+							set_hold_register_06(1,writeaddress,writeamount);
+						}
+						
 					sprintf(strings,"%c%c%c",ascstr[12],ascstr[13],ascstr[14]);
-					BSP_Printf("收到了%s\r\n",strings);
+						BSP_Printf("收到了%s\r\n",strings);//串口2发送
 					IsRead=0;
 					device.status=0;
 				}

@@ -173,6 +173,33 @@ void read_hold_register_03(unsigned char dev_add,unsigned short int addr,unsigne
 	 usart_data.rx_len_ed=0;
 	 com_485_send(i);
 }
+/*函数名：set_hold_register_06
+**写单个保持寄存器
+**参数：dev_add：从机地址，addr：通讯地址，val:要写入的数值
+*/
+
+signed char set_hold_register_06(unsigned char dev_add,unsigned short int addr,uint16_t val)
+{
+	unsigned char i;
+	unsigned short int crc;
+	
+	modbus_data.dev_add=dev_add;
+	modbus_data.fun=0x06;
+	modbus_data.addr=addr;
+	i=0;
+	usart_data.tx_buf[i++]=modbus_data.dev_add;
+	usart_data.tx_buf[i++]=modbus_data.fun;
+	usart_data.tx_buf[i++]=modbus_data.addr>>8;
+	usart_data.tx_buf[i++]=modbus_data.addr;
+	//usart_data.tx_buf[i++]=val>>24;
+	//usart_data.tx_buf[i++]=val>>16;
+	usart_data.tx_buf[i++]=val>>8;
+	usart_data.tx_buf[i++]=val;
+	crc=Modbus_CRC16(usart_data.tx_buf,i);
+	usart_data.tx_buf[i++]=crc>>8;
+	usart_data.tx_buf[i++]=crc;
+	com_485_send(i);
+}
 
 
 
