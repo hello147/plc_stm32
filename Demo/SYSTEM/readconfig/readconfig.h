@@ -8,6 +8,8 @@ void r_defalutconfig(void);
 void r_machineid(void);
 void r_simid(void);
 void r_timeperiod(void);
+void r_defalutconfig(void);
+void readbak(void);
  #define  bakbuffer_len  200
 typedef struct
 {

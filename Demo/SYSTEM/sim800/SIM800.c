@@ -19,8 +19,8 @@ u8 mode = 0;				//0,TCP连接;1,UDP连接
 const char *modetbl[2] = {"TCP","UDP"};//连接模式
 extern char postdata[200];
 extern  struct NEW_Time newtimer;
-char  *ipaddr = "118.024.157.134";
-char  *port = "8081";
+char  *ipaddr = "111.14.212.26";
+char  *port = "5000";
 const char delim=',';
 const char ending='#';
 extern char coredata[200];
@@ -32,6 +32,7 @@ struct  STRUCT_USARTx_sim_Fram strSIM800_Fram_Record = { 0 };
 
 //存储PCB_ID的数组（也就是SIM卡的ICCID）
 char ICCID_BUF[LENGTH_ICCID_BUF+1] = {0};
+char location_BUF[24] = {0};
 char Number_BUF[11];
 t_DEV dev={0};
 const char *msg_device="000";
@@ -555,6 +556,30 @@ u8 ntptime()
 	ret=SIM800_Send_Cmd("AT+CNTP","+CNTP: 1",0,200);
   return ret;
 }
+//获取经纬度
+u8 Get_location()
+{
+ u8 ret = CMD_ACK_NONE;
+	char *p_temp = NULL;
+	int index=0;
+	ret=SIM800_Send_Cmd("AT+CLBS=1,1","+CLBS",0,700);
+  	if(ret == CMD_ACK_OK)	
+		{
+			memcpy(location_BUF,device.sim_data+11,20);
+		  	//p_temp = device.sim_data;
+//			for(index = 0;index < sizeof(location_BUF);index++)
+//			{
+//				location_BUF[index] = *(p_temp+9+index);
+//			}
+			 memcpy(device.lng,location_BUF,9);
+			 memcpy(device.lat,location_BUF+11,9);
+					//memset(location_BUF, 0, sizeof(location_BUF));
+			BSP_Printf("lng:%s \r\nlat:%s\r\n",device.lng,device.lat);
+			
+		}
+	 return ret;
+}
+
 
 u8 closebearer()
 {
@@ -811,7 +836,12 @@ u8 SIM800_Link_Server_AT(void)
 		if((ret = Get_ICCID()) == CMD_ACK_OK)
 			{}
 		else
-		{device.netstatus=ERR_DISCONNECT;}				
+		{device.netstatus=ERR_DISCONNECT;}	
+     	if((ret = Get_location()) == CMD_ACK_OK)
+			{}
+		else
+		{device.netstatus=ERR_DISCONNECT;}		
+		
 							//if((ret = Check_OPS()) == CMD_ACK_OK)
 								//if((ret = SIM800_GPRS_OFF()) == CMD_ACK_OK)
 		if((ret = SIM800_GPRS_CIPSHUT()) == CMD_ACK_OK)
@@ -849,6 +879,7 @@ u8 SIM800_Link_Server_Powerkey(void)
 		ret = SIM800_Link_Server_AT();
 		if(ret != CMD_ACK_OK)
 		{
+			
 			
 		}
 		else
@@ -894,8 +925,7 @@ u8 Check_Xor_Sum(char* pBuf, u16 len)
 //向服务器提交
 u8 SendPost_Server()
 {
- u8 ret = CMD_ACK_NONE;
-
+   u8 ret = CMD_ACK_NONE;
 	 packagepost(ipaddr,port,coredata);
 	 ret = Send_Data_To_Server(postdata);
 	 return ret;
@@ -961,8 +991,6 @@ uint8_t readmessage(char *str)
 		char *redata;
     char cmd[100]={0};
 	  char result=0;
-	
-	 	//strcpy(redata,"+CMT: 4486178541536115,54,718/12/13,10:48:124328iiiii");
 		 redata=device.message;
 		 len=strlen(redata);
 			

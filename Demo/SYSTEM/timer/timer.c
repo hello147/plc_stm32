@@ -25,11 +25,11 @@ void TIM6_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);  					//清除TIM6更新中断标志
 	   readcount++;
 		timecount++;
-		if(readcount==device.period_time)
+		if(readcount==20)
 			{
 				device.status=1;//每隔10s读取一次
 			}else
- 			if(readcount>device.period_time)
+ 			if(readcount>20)
 				{
 					readcount=0;
 				}

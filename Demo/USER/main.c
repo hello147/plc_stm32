@@ -6,7 +6,7 @@
 #include "mod.h"
 #include "device.h"
 #include "usart3.h"
-
+#include "readconfig.h"
 Device_Info device;  //代表本机
 char coredata[200];
 char namenum[20*4]={0};
@@ -107,8 +107,8 @@ unsigned char HexToChar(unsigned char bChar)
 					}
 					else{
 						//测试同步
-					 packagedata();//打包实时数据
-						SendPost_Server(); 		//打包通用数据并发送
+					  packagedata();//打包实时数据
+						SendPost_Server(); //打包通用数据并发送
 					 //BSP_Printf("上传了\r\n"); 
 						printf("上传完成\r\n");
 				   clear();
@@ -145,8 +145,6 @@ unsigned char HexToChar(unsigned char bChar)
 					device.status=0;
 				}
 					break;
-				
-			
 			}
 	 }	 
  }

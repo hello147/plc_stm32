@@ -19,7 +19,8 @@ typedef struct Device_Info
 	u8 SimNumber[12];
 	u8 ipaddress[16];//ipµØÖ·
 	u8 simid[12];
-	
+	u8 lng[10];
+	u8 lat[10];
 	u8 port[6];      //ip¶Ë¿Ú
 	u8 ack1[10];
 	u8 ack2[10];

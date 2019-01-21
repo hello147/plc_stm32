@@ -21,3 +21,5 @@
 ..\obj\main.o: ..\SYSTEM\mod\mod.h
 ..\obj\main.o: ..\SYSTEM\device\device.h
 ..\obj\main.o: ..\SYSTEM\usart3\usart3.h
+..\obj\main.o: ..\SYSTEM\readconfig\readconfig.h
+..\obj\main.o: ..\SYSTEM\iic\iic.h

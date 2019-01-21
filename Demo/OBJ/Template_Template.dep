@@ -1,5 +1,5 @@
 Dependencies for Project 'Template', Target 'Template': (DO NOT MODIFY !)
-F (.\main.c)(0x5C25E04B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5C455C6A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (stm32f10x.h)(0x5C112C0A)
 I (..\CORE\core_cm3.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -20,8 +20,10 @@ I (..\SYSTEM\Common\common.h)(0x5C112C0A)
 I (..\SYSTEM\usart2\usart2.h)(0x5C112C0A)
 I (..\SYSTEM\delay\delay.h)(0x5C112C0A)
 I (..\SYSTEM\mod\mod.h)(0x5C25D287)
-I (..\SYSTEM\device\device.h)(0x5C112C0A)
+I (..\SYSTEM\device\device.h)(0x5C456BA1)
 I (..\SYSTEM\usart3\usart3.h)(0x5C112C0A)
+I (..\SYSTEM\readconfig\readconfig.h)(0x5C453711)
+I (..\SYSTEM\iic\iic.h)(0x5C112C0A)
 F (.\stm32f10x_it.c)(0x5C112C0A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x5C112C0A)
 I (stm32f10x.h)(0x5C112C0A)
@@ -35,7 +37,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x5C112C0A)
-F (.\system_stm32f10x.c)(0x5C112C0A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f10x.o --omf_browse ..\obj\system_stm32f10x.crf --depend ..\obj\system_stm32f10x.d)
+F (.\system_stm32f10x.c)(0x5C2EC6A3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f10x.o --omf_browse ..\obj\system_stm32f10x.crf --depend ..\obj\system_stm32f10x.d)
 I (stm32f10x.h)(0x5C112C0A)
 I (..\CORE\core_cm3.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -345,7 +347,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x5C112C0A)
-F (..\SYSTEM\sim800\SIM800.c)(0x5C25D687)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sim800.o --omf_browse ..\obj\sim800.crf --depend ..\obj\sim800.d)
+F (..\SYSTEM\sim800\SIM800.c)(0x5C4579E7)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sim800.o --omf_browse ..\obj\sim800.crf --depend ..\obj\sim800.d)
 I (..\SYSTEM\sim800\sim800.h)(0x5C112C0A)
 I (..\SYSTEM\sys\sys.h)(0x5C112C0A)
 I (..\USER\stm32F10x.h)(0x5C112C0A)
@@ -367,13 +369,13 @@ I (..\SYSTEM\usart3\usart3.h)(0x5C112C0A)
 I (..\SYSTEM\timer\timer.h)(0x5C112C0A)
 I (..\SYSTEM\delay\delay.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
-I (..\SYSTEM\device\device.h)(0x5C112C0A)
+I (..\SYSTEM\device\device.h)(0x5C456BA1)
 I (..\SYSTEM\send\send.h)(0x5C112C0A)
 I (..\SYSTEM\rtc\rtc.h)(0x5C112C0A)
 I (..\USER\integer.h)(0x5C11FF07)
 I (..\USER\ff.h)(0x5C12074B)
 I (..\USER\ffconf.h)(0x5C11FF3A)
-F (..\SYSTEM\send\send.c)(0x5C24736E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\send.o --omf_browse ..\obj\send.crf --depend ..\obj\send.d)
+F (..\SYSTEM\send\send.c)(0x5C456F31)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\send.o --omf_browse ..\obj\send.crf --depend ..\obj\send.d)
 I (..\SYSTEM\send\send.h)(0x5C112C0A)
 I (..\USER\stm32f10x.h)(0x5C112C0A)
 I (..\CORE\core_cm3.h)(0x5C112C0A)
@@ -389,15 +391,15 @@ I (..\SYSTEM\systick\SysTick.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-I (..\SYSTEM\device\device.h)(0x5C112C0A)
+I (..\SYSTEM\device\device.h)(0x5C456BA1)
 I (..\SYSTEM\usart2\usart2.h)(0x5C112C0A)
 I (..\SYSTEM\sys\sys.h)(0x5C112C0A)
-I (..\SYSTEM\readconfig\readconfig.h)(0x5C112C0A)
+I (..\SYSTEM\readconfig\readconfig.h)(0x5C453711)
 I (..\SYSTEM\iic\iic.h)(0x5C112C0A)
 I (..\SYSTEM\rtc\rtc.h)(0x5C112C0A)
 I (..\SYSTEM\mod\mod.h)(0x5C25D287)
 F (..\SYSTEM\device\device.c)(0x5C112C0A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\device.o --omf_browse ..\obj\device.crf --depend ..\obj\device.d)
-I (..\SYSTEM\device\device.h)(0x5C112C0A)
+I (..\SYSTEM\device\device.h)(0x5C456BA1)
 I (..\USER\stm32F10x.h)(0x5C112C0A)
 I (..\CORE\core_cm3.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -462,7 +464,7 @@ I (..\SYSTEM\sim800\sim800.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
 I (..\SYSTEM\Common\common.h)(0x5C112C0A)
 I (..\SYSTEM\delay\delay.h)(0x5C112C0A)
-F (..\SYSTEM\timer\timer.c)(0x5C25D30B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+F (..\SYSTEM\timer\timer.c)(0x5C453688)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
 I (..\SYSTEM\timer\timer.h)(0x5C112C0A)
 I (..\SYSTEM\sys\sys.h)(0x5C112C0A)
 I (..\USER\stm32F10x.h)(0x5C112C0A)
@@ -480,8 +482,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (..\SYSTEM\usart3\usart3.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
-I (..\SYSTEM\device\device.h)(0x5C112C0A)
-I (..\SYSTEM\readconfig\readconfig.h)(0x5C112C0A)
+I (..\SYSTEM\device\device.h)(0x5C456BA1)
+I (..\SYSTEM\readconfig\readconfig.h)(0x5C453711)
 I (..\SYSTEM\iic\iic.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5C112C0A)
 F (..\SYSTEM\mod\mod.c)(0x5C25CF35)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\mod.o --omf_browse ..\obj\mod.crf --depend ..\obj\mod.d)
@@ -514,7 +516,7 @@ I (..\SYSTEM\systick\SysTick.h)(0x5C112C0A)
 I (..\USER\stm32f10x_it.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (..\SYSTEM\device\device.h)(0x5C112C0A)
+I (..\SYSTEM\device\device.h)(0x5C456BA1)
 F (..\SYSTEM\rtc\rtc.c)(0x5C112C0A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\rtc.o --omf_browse ..\obj\rtc.crf --depend ..\obj\rtc.d)
 I (..\USER\stm32f10x.h)(0x5C112C0A)
 I (..\CORE\core_cm3.h)(0x5C112C0A)
@@ -542,8 +544,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5C112C0A)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x5C112C0A)
-I (..\SYSTEM\readconfig\readconfig.h)(0x5C112C0A)
-I (..\SYSTEM\device\device.h)(0x5C112C0A)
+I (..\SYSTEM\readconfig\readconfig.h)(0x5C453711)
+I (..\SYSTEM\device\device.h)(0x5C456BA1)
 I (..\SYSTEM\usart2\usart2.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 F (..\SYSTEM\Common\Common.c)(0x5C112C0A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\USER -I ..\CORE -I ..\STM32F10x_FWLib\inc -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\SYSTEM\24cxx -I ..\SYSTEM\iic -I ..\SYSTEM\mod -I ..\SYSTEM\readconfig -I ..\SYSTEM\rtc -I ..\SYSTEM\sim800 -I ..\SYSTEM\timer -I ..\SYSTEM\usart2 -I ..\SYSTEM\usart3 -I ..\SYSTEM\send -I ..\SYSTEM\device -I ..\SYSTEM\systick -I ..\SYSTEM\Common-I.\RTE\_Template-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\common.o --omf_browse ..\obj\common.crf --depend ..\obj\common.d)
@@ -594,4 +596,4 @@ I (..\STM32F10x_FWLib\inc\misc.h)(0x5C112C0A)
 I (..\SYSTEM\usart\usart.h)(0x5C112C0A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (..\SYSTEM\sys\sys.h)(0x5C112C0A)
-F (.\README.txt)(0x5C26C1A1)()
+F (.\README.txt)(0x5C26DE1B)()
