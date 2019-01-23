@@ -3,12 +3,16 @@
 #include "readconfig.h"
 #include "device.h"
 #include "usart2.h"
+#include "string.h"
+#include "sim800.h"
+#include "stdint.h"
+#include "delay.h"
  dev_configration dev_config={0};
 extern struct Device_Info device; 
-uint8_t datatemp[72];
- uint8_t defalut[20];
+  char datatemp[72];
+ char defalut[20];
  int readedaddr=100;
- uint8_t ReadBuf[bakbuffer_len];
+ char ReadBuf[bakbuffer_len];
  
 extern char coredata[200];
 //读取配置
@@ -41,7 +45,7 @@ void r_defalutconfig()
   strncpy(device.port,datatemp+57,5);//截取端口
 	strncpy(device.rstime,datatemp+69,3);//截取重启时间
 
-	 	  a=atoi(device.period);
+	  a=atoi(device.period);
 	  b=atoi(device.rstime);
 	//device.rstart_time=device.rstime[0]*100+device.rstime[1]*10+device.rstime[2];
 	//device.period_time=(int)device.period[0]*10+(int)device.period[1];
@@ -73,7 +77,7 @@ void readbak()
 		E2promReadBuffer(readedaddr,ReadBuf,200);
 		for(i=0;i<200;i++)
 		{
-		  E2promWriteByte(readedaddr+i,"0");
+		  E2promWriteByte(readedaddr+i,'0');
 			delay_ms(10);
 		}
 		 BSP_Printf("擦除了\r\n");

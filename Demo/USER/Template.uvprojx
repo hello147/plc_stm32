@@ -651,6 +651,11 @@
               <FileType>5</FileType>
               <FilePath>.\README.txt</FilePath>
             </File>
+            <File>
+              <FileName>iic.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\SYSTEM\iic\iic.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

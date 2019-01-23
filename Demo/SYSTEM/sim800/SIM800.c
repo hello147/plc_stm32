@@ -12,6 +12,7 @@
 #include "stm32f10x.h"
 #include "integer.h"
 #include "ff.h"//firecc936.c文件中：ff_convert()函数实现unicode与gbk互转功能
+#include "stdint.h"
 #define COUNT_AT 3
 static uint8_t MaxMessAdd=50;
 extern Device_Info device;  //代表本机
@@ -21,6 +22,7 @@ extern char postdata[200];
 extern  struct NEW_Time newtimer;
 char  *ipaddr = "111.14.212.26";
 char  *port = "5000";
+u8 step_configure;
 const char delim=',';
 const char ending='#';
 extern char coredata[200];
@@ -807,6 +809,43 @@ u8 SIM800_SMS_Notif(char *phone, char *sms)
 	return ret;
 }
 
+
+void sim800config()
+{
+	switch(step_configure)
+	{
+			case 0 :
+			{
+				//memset(usart2Buf, 0, sizeof(usart2Buf));
+				//UsartPrintf(USART2, " AT\r\n");
+				if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
+				step_configure = 1;
+				//delayMs(1000);
+			}
+			 break;
+			case 1:
+			{
+			if( CMD_ACK_OK==SIM800_Send_Cmd("ATE0","OK",0,200))
+				step_configure = 2;
+			}
+			case 2:
+			{
+			if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
+				step_configure = 3;
+			}
+			case 3:
+			{
+			if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
+				step_configure = 4;
+			}
+			case 4:
+			{
+			if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
+				step_configure = 5;
+			}
+	}
+	
+}
 //返回1   某条AT指令执行错误
 //返回0   成功连接上服务器
 u8 SIM800_Link_Server_AT(void)
@@ -957,7 +996,7 @@ void SIM800_ntpserver()
 						 newtimer.newhour=(device.sim_data[19]-'0')*10+(device.sim_data[20]-'0');
 						 newtimer.newmin=(device.sim_data[22]-'0')*10+(device.sim_data[23]-'0');
 						 newtimer.newsec=(device.sim_data[25]-'0')*10+(device.sim_data[26]-'0');		
-      BSP_Printf("时间更新\r\n");						 
+             BSP_Printf("时间更新\r\n");						 
 					 }
 			Time_Update(newtimer.newyear,newtimer.newmonth,newtimer.newdate,newtimer.newhour,newtimer.newmin,newtimer.newsec);
 				 
@@ -965,7 +1004,7 @@ void SIM800_ntpserver()
 //设置接到短信发到串口
 u8 setsmsmodel()
 {
-  u8 ret=0;
+   u8 ret=0;
 	 ret = SIM800_Send_Cmd("AT+CNMI=2,2","OK","",1000);
 	 return ret;
 }

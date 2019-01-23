@@ -1,7 +1,7 @@
 #ifndef __DEVICE_H
 #define __DEVICE_H 			   
 #include "stm32F10x.h"
-
+#include "stdint.h"
 
 
 
@@ -25,8 +25,8 @@ typedef struct Device_Info
 	u8 ack1[10];
 	u8 ack2[10];
 	u8 msg_rec;
-	u8 sim_data[10];
-	u8 rstime[3];
+	char sim_data[10];
+	char rstime[3];
 	int rstart_time;   //转化后的重启时间
 	int period_time;  //转化后的时间间隔
 	u8 message[100];

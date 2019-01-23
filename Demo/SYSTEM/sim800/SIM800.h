@@ -85,7 +85,9 @@ u8 	SIM800_GPRS_Dispaly_IP(void);
 u8 	SIM800_GPRS_CIPSHUT(void);
 u8 	SIM800_GPRS_CGCLASS(void);
 u8 	SIM800_GPRS_CGDCONT(void);
-
+u8 setsms_layout();
+u8 setsmsmodel();
+u8 Get_Number(void);
 u8 	Link_Server_Echo(void);
 u8 	Link_Server_AT(u8 mode,const char* ipaddr,const char *port);
 

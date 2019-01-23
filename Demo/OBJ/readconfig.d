@@ -1,7 +1,6 @@
 ..\obj\readconfig.o: ..\SYSTEM\readconfig\readconfig.c
 ..\obj\readconfig.o: ..\SYSTEM\iic\iic.h
-..\obj\readconfig.o: ..\SYSTEM\sys\sys.h
-..\obj\readconfig.o: ..\USER\stm32F10x.h
+..\obj\readconfig.o: ..\USER\stm32f10x.h
 ..\obj\readconfig.o: ..\CORE\core_cm3.h
 ..\obj\readconfig.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\readconfig.o: ..\USER\system_stm32f10x.h
@@ -16,3 +15,9 @@
 ..\obj\readconfig.o: ..\SYSTEM\device\device.h
 ..\obj\readconfig.o: ..\SYSTEM\usart2\usart2.h
 ..\obj\readconfig.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\readconfig.o: ..\SYSTEM\sys\sys.h
+..\obj\readconfig.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\readconfig.o: ..\SYSTEM\sim800\sim800.h
+..\obj\readconfig.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\readconfig.o: ..\SYSTEM\Common\common.h
+..\obj\readconfig.o: ..\SYSTEM\delay\delay.h
