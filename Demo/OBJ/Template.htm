@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jan 23 09:47:53 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jan 23 13:44:50 2019
 <BR><P>
 <H3>Maximum Stack Usage =        560 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1367,7 +1367,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_ntpserver
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setsms_layout
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setsmsmodel
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_SMS_Notif
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_CSCS_Set
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_CSMP_Set
@@ -1409,6 +1408,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_ntpserver
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_SMS_Notif
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_ICCID
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Number
@@ -1436,6 +1436,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_SMS_Notif
 </UL>
 
@@ -1447,6 +1448,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 </UL>
 
 <P><STRONG><a name="[d1]"></a>Check_SIM_Card</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, sim800.o(.text))
@@ -1457,6 +1459,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_SMS_Notif
 </UL>
 
@@ -1478,6 +1481,7 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 </UL>
 
 <P><STRONG><a name="[d5]"></a>Get_ICCID</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, sim800.o(.text))
@@ -1505,6 +1509,7 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_GPRS_ON
 </UL>
 
@@ -1540,6 +1545,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 </UL>
 
 <P><STRONG><a name="[de]"></a>SIM800_GPRS_CGCLASS</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, sim800.o(.text))
@@ -1550,6 +1556,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 </UL>
 
 <P><STRONG><a name="[df]"></a>SIM800_GPRS_CGDCONT</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, sim800.o(.text))
@@ -1560,6 +1567,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 </UL>
 
 <P><STRONG><a name="[e0]"></a>SAPBR3</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, sim800.o(.text))
@@ -1611,6 +1619,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Link_Server_AT
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sim800config
 </UL>
 
 <P><STRONG><a name="[e7]"></a>closebearer</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, sim800.o(.text), UNUSED)
@@ -1685,8 +1694,17 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 
-<P><STRONG><a name="[f0]"></a>sim800config</STRONG> (Thumb, 152 bytes, Stack size 8 bytes, sim800.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_Send_Cmd
+<P><STRONG><a name="[f0]"></a>sim800config</STRONG> (Thumb, 220 bytes, Stack size 8 bytes, sim800.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_location
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_GPRS_CGDCONT
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_GPRS_CGCLASS
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SIM800_GPRS_CIPSHUT
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Link_Server_AT
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_CSQ
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_SIM_Card
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_Network
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_Module
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disable_Echo
 </UL>
 
 <P><STRONG><a name="[94]"></a>SIM800_Link_Server_AT</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, sim800.o(.text))
@@ -1732,7 +1750,7 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[93]"></a>SIM800_ntpserver</STRONG> (Thumb, 474 bytes, Stack size 24 bytes, sim800.o(.text))
+<P><STRONG><a name="[93]"></a>SIM800_ntpserver</STRONG> (Thumb, 452 bytes, Stack size 24 bytes, sim800.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
 <LI>Call Chain = SIM800_ntpserver &rArr; Disable_Echo &rArr; SIM800_Send_Cmd &rArr; u3_printf &rArr; USART2_printf &rArr; __c89vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1749,7 +1767,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f5]"></a>setsmsmodel</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, sim800.o(.text))
+<P><STRONG><a name="[f5]"></a>setsmsmodel</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, sim800.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 424 + Unknown Stack Size
 <LI>Call Chain = setsmsmodel &rArr; SIM800_Send_Cmd &rArr; u3_printf &rArr; USART2_printf &rArr; __c89vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1758,7 +1776,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;r_defalutconfig
 </UL>
 
-<P><STRONG><a name="[f6]"></a>setsms_layout</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, sim800.o(.text))
+<P><STRONG><a name="[f6]"></a>setsms_layout</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, sim800.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 424 + Unknown Stack Size
 <LI>Call Chain = setsms_layout &rArr; SIM800_Send_Cmd &rArr; u3_printf &rArr; USART2_printf &rArr; __c89vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>

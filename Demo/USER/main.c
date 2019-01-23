@@ -65,6 +65,7 @@ unsigned char HexToChar(unsigned char bChar)
 	 
 	 SIM800_ntpserver();
 	 SIM800_Link_Server_AT();//连接服务器
+	 //sim800config();
 	 //delay_ms(2000);
 	 r_defalutconfig();
 	 readbak();

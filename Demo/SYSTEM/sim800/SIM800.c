@@ -22,7 +22,8 @@ extern char postdata[200];
 extern  struct NEW_Time newtimer;
 char  *ipaddr = "111.14.212.26";
 char  *port = "5000";
-u8 step_configure;
+u8 step_configure=0;
+int sim800_conf=0;
 const char delim=',';
 const char ending='#';
 extern char coredata[200];
@@ -151,7 +152,7 @@ u8 Check_Module(void)
 			delay_ms(2000);
 		}
 		
-		else if((ret == CMD_ACK_OK) || (ret == CMD_ACK_DISCONN))  //在正常AT 命令里基本上不可能返回"CLOSED" 吧 ，仅放在这里
+		else if((ret == CMD_ACK_OK) || (ret == CMD_ACK_DISCONN))  //在正常AT 命令里基本上不可能返回"CLOSED"，仅放在这里
 			break;
 		
 		count--;
@@ -276,7 +277,7 @@ u8 Check_CSQ(void)
 			{
 				delay_ms(2000);
 			}
-			else if((ret == 0) || (ret == 1))
+			else if(ret == 1)
 			{
 				device.netstatus=ERR_DISCONNECT;
 			  break;
@@ -811,47 +812,105 @@ u8 SIM800_SMS_Notif(char *phone, char *sms)
 
 
 void sim800config()
-{
+{  u8 ret = CMD_ACK_NONE;
 	switch(step_configure)
 	{
 			case 0 :
 			{
 				//memset(usart2Buf, 0, sizeof(usart2Buf));
 				//UsartPrintf(USART2, " AT\r\n");
-				if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
-				step_configure = 1;
+				//检测有无反应
+				if((ret = Check_Module()) == CMD_ACK_OK)
+				{step_configure = 1;}
+				else 
+					step_configure=0;
 				//delayMs(1000);
 			}
 			 break;
 			case 1:
 			{
-			if( CMD_ACK_OK==SIM800_Send_Cmd("ATE0","OK",0,200))
-				step_configure = 2;
+				//关闭回显
+			 if((ret = Disable_Echo()) == CMD_ACK_OK)
+			 {step_configure = 2;}
+			 else
+				 step_configure = 1;
 			}
+			break;
 			case 2:
 			{
-			if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
-				step_configure = 3;
+				//检测网络注册情况
+				if((ret = Check_Network()) == CMD_ACK_OK)	
+				{step_configure = 3;}
 			}
+			break;
 			case 3:
 			{
-			if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
-				step_configure = 4;
+				//检测有无sim卡
+					if((ret = Check_SIM_Card()) == CMD_ACK_OK)	
+			
+				{step_configure = 4;}
 			}
+			break;
 			case 4:
 			{
-			if( CMD_ACK_OK==SIM800_Send_Cmd("AT","OK",0,100))
-				step_configure = 5;
+				//检测信号质量
+				if((ret = Check_CSQ()) == CMD_ACK_OK)
+			//if( CMD_ACK_OK==Check_CSQ())
+				{step_configure = 5;}
 			}
+			break;
+			case 5:
+			{
+				//获取位置
+				if((ret = Get_location()) == CMD_ACK_OK)
+			//if( CMD_ACK_OK==Get_location())
+				{step_configure = 6;}
+			}
+			break;
+			case 6:
+			{
+				//关闭数据连接
+				if((ret = SIM800_GPRS_CIPSHUT()) == CMD_ACK_OK)
+			//if( CMD_ACK_OK==SIM800_GPRS_CIPSHUT())
+				{step_configure = 7;}
+			}
+			break;
+			case 7:
+			{
+				//
+				if((ret = SIM800_GPRS_CGCLASS()) == CMD_ACK_OK)
+			//if( CMD_ACK_OK==SIM800_GPRS_CGCLASS())
+				{step_configure = 8;}
+			}
+			break;
+			case 8:
+			{
+				//
+				if((ret = SIM800_GPRS_CGDCONT()) == CMD_ACK_OK)
+			//if( CMD_ACK_OK==SIM800_GPRS_CGDCONT())
+				{step_configure = 9;}
+			}
+			break;
+			case 9:
+			{
+				//关闭数据连接
+				if((ret = Link_Server_AT(0, ipaddr, port)) == CMD_ACK_OK)
+			//if( CMD_ACK_OK==Link_Server_AT(0, ipaddr, port))
+			    device.status=0;//联网成功，把状态	
+		 { step_configure = 0;}
+			}
+			break;
+			
 	}
 	
 }
 //返回1   某条AT指令执行错误
 //返回0   成功连接上服务器
-u8 SIM800_Link_Server_AT(void)
+u8 SIM800_Link_Server_AT()
 {
 	u8 ret = CMD_ACK_NONE;
 	//操作AT指令进行联网操作
+	
 	if((ret = Check_Module()) == CMD_ACK_OK)
 	{}
 		else
@@ -881,8 +940,7 @@ u8 SIM800_Link_Server_AT(void)
 		else
 		{device.netstatus=ERR_DISCONNECT;}		
 		
-							//if((ret = Check_OPS()) == CMD_ACK_OK)
-								//if((ret = SIM800_GPRS_OFF()) == CMD_ACK_OK)
+							
 		if((ret = SIM800_GPRS_CIPSHUT()) == CMD_ACK_OK)
 		{}
 		else
